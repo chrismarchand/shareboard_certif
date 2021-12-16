@@ -1,0 +1,66 @@
+<div class="banner-topic">
+  <div class="container-banner-topic text-left">
+    <div class="title"><h1 id="buddy">Buddy </h1><h1 id="bot">Bot</h1></div>
+    <h2>Le 1<sup>er</sup> ChatBot éducatif pour vos alumnis</h2>
+      <div class="paragraphe">
+        <div class="inline"><p>Un sujet par jour, </p><p class="strong">EN 5 MINUTES</p></div>
+        <p>Buddy c’est un peu ce collègue qui, à la machine à café, vous raconte plein de choses. <strong class="focus">Sauf que Buddy, </strong> lui, il maitrise son sujet ;)</p>
+        <%# <p class="focus">C’est le premier bot conversationnel du wagon.</p> %>
+      </div>
+  </div>
+</div>
+
+<div class="container-topics">
+  <div class="content-title">
+    <h1>Mes photos</h1>
+    <button class="btn-new-topic btn btn-danger modal-btn ml-3">Nouvelle conversation</button>
+  </div>
+
+  <div class="modal-bg">
+    <div class="modal">
+        <%= render 'form_content', content: @content %>
+    </div>
+  </div>
+
+
+  <div class="cards">
+    <% @contents.each do |content| %>
+      <%= button_to(
+        topic_path(content),
+        method: :get,
+        class: "btn-stripped"
+      )do %>
+        <div class="card-content">
+          <div class="card-photo-part">
+            <% if content.photo.attached? %>
+              <%= cl_image_tag("#{content.photo.key}", crop: :fill, class: "card-photo") %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1495055154266-57bbdeada43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', crop: :fill, class: "card-photo" %>
+            <% end %>
+            <%= link_to(
+              content_path(content),
+              method: :delete, remote: true,
+              data: { confirm: "Souhaitez-vous supprimer cette photo ?" }
+            ) do %>
+              <i class="fas fa-trash card-trash"></i>
+            <% end %>
+          </div>
+          <div class="card-body-part">
+            <div class="card-body">
+            <% if content.title.length > 30 %>
+              <h3 class="card-title m-0"><%= content.title[0..30] + "..." %></h5>
+            <% else %>
+              <h3 class="card-title m-0"><%= content.title %></h5>
+            <% end %>
+            </div>
+            <% if content.description.length > 60 %>
+              <p class="card-text"><%= content.description[0..60] + "..." %></p>
+            <% else %>
+              <p class="card-text"><%= content.description %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
