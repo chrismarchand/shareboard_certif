@@ -1,0 +1,178 @@
+.modal-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, Opacity 0.5s;
+  z-index: 11;
+}
+
+.bg-active{
+   visibility: visible;
+   opacity: 1;
+}
+
+.modal{
+  position: relative;
+  font-family: 'Montserra', sans-serif;
+  background-color: white;
+  background-image: asset-url('logo-Jam-bot_N&B.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 400px;
+  width: 70%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 60px;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 10;
+  border-radius: 6px;
+}
+
+
+.modal-small{
+  position: relative;
+  font-family: 'Montserra', sans-serif;
+  background-color: white;
+  width: 35%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  left: -5%;
+}
+
+
+.modal-close{
+  position: absolute;
+  top: 0;
+  // right: -67%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+#modal-close-new{
+  right: -67%;
+}
+
+#modal-close-schedule {
+  position: absolute;
+  top: 2%;
+  left: 93%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+  }
+
+.modal-close-option {
+  position: absolute;
+  top: -5%;
+  right: -15%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.modal-container{
+  width: 57%;
+  position: relative;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+.modal-container-option {
+  width: 70%;
+  position: relative;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+.modal-schedule{
+  position: relative;
+  font-family: 'Montserra', sans-serif;
+  background-color: white;
+  width: 40%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+  // emoji-picker {
+  //   position: absolute;
+  //   top: 30px;
+  //   left: 685px;
+  //   z-index: 10;
+  // }
+
+// .modal-btn{
+//   position: absolute;
+//   right: 19px;
+//   top: 85px;
+// }
+@media(max-width: 500px) {
+  .modal{
+    padding-left: 20px;
+    width: 90%;
+    height: 69%;
+    min-height: 500px;
+    background-image: none;
+    z-index: 1000;
+  }
+
+  .modal-container {
+    width: 90%;
+  }
+
+  #modal-close-new {
+    right: -2%;
+  }
+
+  .modal-small{
+  width: 90%;
+  margin-left: auto;
+  height: 65%;
+  min-height: 470px;
+  }
+
+  .modal-container-option {
+    width: 80%;
+    position: relative;
+
+    h1 {
+      width: 270px;
+      font-size: 32px;
+      padding-left: 12px;
+      // margin-right: 20px;
+    }
+  }
+
+  .modal-close-option {
+    top: 0;
+    right: -6%;
+  }
+
+  .modal-schedule {
+    width: 90%;
+    height: 55%;
+    border-radius: 6px;
+  }
+}
